@@ -1,6 +1,8 @@
 # Synthesis RICONTRANS - Entity Documentation Schemas
 
-This repository contains the documentation schemas of the entity types used by Synthesis RICONTRANS. **Synthesis RICONTRANS** is a web-based application for the collaborative and controlled documentation of data and knowledge related to *Art History* research. It is based on and extends [Synthesis-Core](https://www.ics.forth.gr/isl/synthesis-core), an information system for the scientific and administrative documentation of cultural entities which makes use of [FIMS](https://github.com/isl/FIMS), an open-source system suitable for documenting, recording and managing XML files stored in an XML database.
+This repository contains the documentation schemas of the entity types used by Synthesis RICONTRANS. 
+
+**Synthesis RICONTRANS** is a web-based application for the collaborative and controlled documentation of data and knowledge related to *Art History* research. It is based on and extends [Synthesis-Core](https://www.ics.forth.gr/isl/synthesis-core), an information system for the scientific and administrative documentation of cultural entities which makes use of [FIMS](https://github.com/isl/FIMS), an open-source system suitable for documenting, recording and managing XML files stored in an XML database.
 
 **Synthesis RICONTRANS** has been designed and configured considering the research needs of the [RICONTRANS](https://ricontrans-project.eu/) project, whose research focus is the Russian religious artefacts brought from Russia to the Balkans after the 16th century and which are now preserved in churches, monasteries or museums. 
 
