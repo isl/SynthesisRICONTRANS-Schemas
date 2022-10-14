@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 sp1 (http://www.altova.com) by free.org (free.org) -->
+<!--
+
+Copyright 2015 Institute of Computer Science,
+Foundation for Research and Technology - Hellas
+
+Licensed under the EUPL, Version 1.1 or - as soon they will be approved
+by the European Commission - subsequent versions of the EUPL (the "Licence");
+You may not use this work except in compliance with the Licence.
+You may obtain a copy of the Licence at:
+
+http://ec.europa.eu/idabc/eupl
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the Licence is distributed on an "AS IS" basis,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the Licence for the specific language governing permissions and limitations
+under the Licence.
+
+Contact:  POBox 1385, Heraklio Crete, GR-700 13 GREECE
+Tel:+30-2810-391632
+Fax: +30-2810-391638
+E-mail: isl@ics.forth.gr
+http://www.ics.forth.gr/isl
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="Types.xsd"/>
+	<xs:element name="ObjectTransfer">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="IdentificationNumber" type="identificationNumber"/>
+				<xs:element name="Name" type="xs:string" maxOccurs="1"/>
+				<xs:element name="MovementDate" type="chronology"/>
+				<xs:element name="MovedObject" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Object" type="link"/>
+							<xs:element name="ObjectName" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="MovedFrom">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Place" type="link"/>
+							<xs:element name="Details" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="MovedTo">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Place" type="link"/>
+							<xs:element name="Details" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Description" type="richText"/>
+				<xs:element name="PersonInvolved" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Person" type="link"/>
+							<xs:element name="Role" type="term" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="OrganizationInvolved" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Organization" type="link"/>
+							<xs:element name="Role" type="term" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ObjectInvolved" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="CodeNumber" type="link"/>
+							<xs:element name="Name" type="xs:string"/>
+							<xs:element name="ObjectKind" type="thesaurus" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Purpose" type="term" maxOccurs="unbounded"/>
+				<xs:element name="BasedOn">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="SourcePassageCollection" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Link" type="link"/>
+										<xs:element name="Note" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="SourcePassages" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Link" type="link"/>
+										<xs:element name="Note" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="BibliographicReference" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Link" type="link"/>
+										<xs:element name="Note" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="SourceReferences">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ArchivalSourcesReference" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="ArchivalSource" type="link"/>
+													<xs:element name="Note" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="BookSourcesReference" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="BookSource" type="link"/>
+													<xs:element name="Note" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="NewspapersPeriodicalsReference" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="NewspapersPeriodical" type="link"/>
+													<xs:element name="Note" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="OralHistorySourcesReference" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="OralHistorySource" type="link"/>
+													<xs:element name="Note" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="WebSources" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="WebSource" type="link"/>
+													<xs:element name="Note" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ConcludedByEditor" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Person" type="link"/>
+							<xs:element name="Date">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="time_span">
+											<xs:attribute name="x" type="xs:string" use="required"/>
+											<xs:attribute name="y" type="xs:string" use="required"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Belief">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="BeliefValue" type="term"/>
+										<xs:element name="Note" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="admin" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Type" type="term"/>
+	<xs:element name="BirthDeathNote" type="xs:string"/>
+	<xs:element name="Period" type="date"/>
+	<xs:element name="Location" type="link"/>
+	<xs:element name="BeMemberOf" type="link"/>
+	<xs:element name="Description" type="xs:string"/>
+</xs:schema>

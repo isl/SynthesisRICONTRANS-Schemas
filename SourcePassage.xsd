@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 sp1 (http://www.altova.com) by free.org (free.org) -->
+<!--
+
+Copyright 2015 Institute of Computer Science,
+Foundation for Research and Technology - Hellas
+
+Licensed under the EUPL, Version 1.1 or - as soon they will be approved
+by the European Commission - subsequent versions of the EUPL (the "Licence");
+You may not use this work except in compliance with the Licence.
+You may obtain a copy of the Licence at:
+
+http://ec.europa.eu/idabc/eupl
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the Licence is distributed on an "AS IS" basis,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the Licence for the specific language governing permissions and limitations
+under the Licence.
+
+Contact:  POBox 1385, Heraklio Crete, GR-700 13 GREECE
+Tel:+30-2810-391632
+Fax: +30-2810-391638
+E-mail: isl@ics.forth.gr
+http://www.ics.forth.gr/isl
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="Types.xsd"/>
+	<xs:element name="SourcePassage">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="IdentificationNumber" type="identificationNumber"/>
+				<xs:element name="Title" type="xs:string" maxOccurs="1"/>
+				<xs:element name="SubjectArea" type="term" maxOccurs="unbounded"/>
+				<xs:element name="Topics" type="thesaurus" maxOccurs="unbounded"/>
+				<xs:element name="Origin" type="link"/>
+				<xs:element name="SourcePassageText">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ReferencePageNumber" type="xs:string"/>
+							<xs:element name="Text" type="richText"/>
+							<xs:element name="File" type="multiple_files"/>
+							<xs:element name="Language" type="term"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SourcePassageTranslation" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Text" type="richText"/>
+							<xs:element name="File" type="multiple_files"/>
+							<xs:element name="Language" type="term"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="ReferencedInformation"/>
+				<xs:element name="RelationEntities">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Entity" type="link" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Commentary" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="Type"/>
+							<xs:element name="Note" type="richText"/>
+							<xs:element name="Author" type="link"/>
+							<xs:element name="Language" type="term"/>
+							<xs:element name="CreationDate">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="time_span">
+											<xs:attribute name="x" type="xs:string" use="required"/>
+											<xs:attribute name="y" type="xs:string" use="required"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="admin" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Type" type="term"/>
+	<xs:element name="BirthDeathNote" type="xs:string"/>
+	<xs:element name="Period" type="date"/>
+	<xs:element name="Location" type="link"/>
+	<xs:element name="BeMemberOf" type="link"/>
+	<xs:element name="ContactInfo" type="xs:string"/>
+	<xs:element name="Description" type="xs:string"/>
+</xs:schema>
